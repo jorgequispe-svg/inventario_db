@@ -1,0 +1,16 @@
+<h2>Listado de Ventas</h2>
+<a href="{{ url_for('venta.nueva') }}">Nueva Venta</a>
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>ID</th><th>Producto</th><th>Cantidad</th><th>Precio Unitario</th><th>Fecha</th>
+    </tr>
+    {% for v in ventas %}
+    <tr>
+        <td>{{ v.id }}</td>
+        <td>{{ v.producto.nombre }}</td>
+        <td>{{ v.cantidad }}</td>
+        <td>{{ v.precio_unitario }}</td>
+        <td>{{ v.fecha }}</td>
+    </tr>
+    {% endfor %}
+</table>

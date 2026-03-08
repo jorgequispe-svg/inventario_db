@@ -1,0 +1,20 @@
+<h2>Listado de Productos</h2>
+<a href="{{ url_for('producto.nuevo') }}">Nuevo Producto</a>
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>ID</th><th>Nombre</th><th>Descripción</th><th>Stock</th><th>Precio</th><th>Acciones</th>
+    </tr>
+    {% for p in productos %}
+    <tr>
+        <td>{{ p.id }}</td>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.descripcion }}</td>
+        <td>{{ p.stock }}</td>
+        <td>{{ p.precio }}</td>
+        <td>
+            <a href="{{ url_for('producto.editar', id=p.id) }}">Editar</a> |
+            <a href="{{ url_for('producto.eliminar', id=p.id) }}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
